@@ -1,0 +1,4 @@
+node_modules
+.vscode
+/dist
+*.gpg-backup.panza.tar.gz

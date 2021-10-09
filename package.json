@@ -1,0 +1,34 @@
+{
+  "name": "@frux/panza",
+  "version": "0.0.0",
+  "description": "Collection of script to do some routine",
+  "main": "./dist/cli.js",
+  "bin": {
+    "panza": "dist/cli.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
+  },
+  "author": "Vladimir Kudinov <mail@frux.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "16.10.3",
+    "@types/yargs": "17.0.3",
+    "typescript": "4.5.0-beta"
+  },
+  "dependencies": {
+    "yargs": "17.2.1",
+    "zx": "4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frux/panza.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frux/panza/issues"
+  },
+  "homepage": "https://github.com/frux/panza#readme"
+}
