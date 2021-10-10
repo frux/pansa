@@ -8,7 +8,7 @@ const TEMP = `${Date.now()}.temp.panza`;
 
 export const exportGPG = createCommand({
     usage: 'gpg-export',
-    description: 'export GPG keys',
+    description: 'Export GPG keys',
     flags: {
         to: {
             flagType: 'option',
@@ -16,7 +16,7 @@ export const exportGPG = createCommand({
             type: 'string',
         },
     },
-    main: async ({ $, fs, path, question, say, step }, flags) => {
+    async main({ $, fs, path, question, say, step }, flags) {
         const defaultPath = process.cwd();
         const exportPath = flags.to || await question('Where should I save exported keys', defaultPath);
 
@@ -51,7 +51,7 @@ export const importGPG = createCommand({
             type: 'string',
         },
     },
-    main: async ({ $, fs, path, question, say, step }, flags) => {
+    async main({ $, fs, path, question, say, step }, flags) {
         const defaultPath = process.cwd();
         const backupPath = flags.from || await question('Where is a backup of your GPG keys?', defaultPath);
  
