@@ -8,9 +8,11 @@
   },
   "type": "commonjs",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build"
+    "build": "tsc -p ./tsconfig.json && npm run copy-templates",
+    "test": "npm run lint",
+    "lint": "eslint .",
+    "copy-templates": "cp -r ./src/commands/dotfiles/templates ./dist/commands/dotfiles/templates",
+    "prepare": "husky install"
   },
   "author": "Vladimir Kudinov <mail@frux.me>",
   "license": "ISC",
@@ -18,6 +20,11 @@
     "@types/inquirer": "8.1.3",
     "@types/node": "16.10.3",
     "@types/yargs": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint-config-xo": "0.39.0",
+    "eslint-plugin-import": "2.24.2",
+    "husky": "7.0.2",
     "typescript": "4.5.0-beta"
   },
   "dependencies": {
