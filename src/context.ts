@@ -1,10 +1,12 @@
 import * as zx from 'zx';
+import inquirer, { DistinctQuestion } from 'inquirer';
 
 export type CommandContext = ReturnType<typeof getCommandContext>;
 
 export function getCommandContext() {
     return {
         ...zx,
+        prompt,
         question,
         say,
         step,
@@ -28,4 +30,23 @@ async function step(message: string, fn: () => Promise<unknown>) {
 
 function say(message: string) {
     console.log(message);
+}
+
+type PromptAnswerTypeMap<T extends DistinctQuestion['type']> = (
+    T extends 'input' ? string :
+    T extends 'number' ? number :
+    T extends 'password' ? string :
+    T extends 'list' ? string[] :
+    T extends 'expand' ? string :
+    T extends 'checkbox' ? string[] :
+    T extends 'confirm' ? boolean :
+    T extends 'editor' ? string :
+    T extends 'rawlist' ? string[] :
+    string
+);
+
+async function prompt<T extends Omit<DistinctQuestion, 'name'>>(question: T) {
+    const { answer } = await inquirer.prompt({ ...question, name: 'answer' });
+
+    return answer as PromptAnswerTypeMap<T['type']>;
 }
