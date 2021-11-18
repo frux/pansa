@@ -40,6 +40,7 @@
       "error",
       "after"
     ],
+    "guard-for-in": "off",
     "@typescript-eslint/comma-dangle": [
       "error",
       "always-multiline"
