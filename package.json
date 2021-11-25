@@ -1,6 +1,6 @@
 {
   "name": "@frux/panza",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Collection of script to do some routine",
   "main": "./dist/cli.js",
   "bin": {
