@@ -11,7 +11,7 @@
     "build": "tsc -p ./tsconfig.json && npm run copy-templates",
     "test": "npm run lint",
     "lint": "eslint .",
-    "copy-templates": "cp -r ./src/commands/dotfiles/templates ./dist/commands/dotfiles/templates",
+    "copy-templates": "cp -R ./src/commands/dotfiles/templates ./dist/commands/dotfiles",
     "prepare": "husky install"
   },
   "author": "Vladimir Kudinov <mail@frux.me>",
